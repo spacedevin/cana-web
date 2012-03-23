@@ -171,8 +171,6 @@ foreach (i::o(Project::o('marvel')->shots(), Project::o('uw4')->shots()) as $sho
 	echo $shot;
 }</pre>
 
-
-
 				<p>use the query method to build a set, then loop through each item</i></p>
 				<pre class="brush: php; toolbar: false;">
 Shot_Element::q('
@@ -190,12 +188,31 @@ Shot_Element::q('
 ')->e(function($item) { 
 	// do some cool stuff here
  });</pre>
+ 
+ 				<p>create the test function on the base cana object. this puts the function easily accesable in the global scope</i></p>
+				<pre class="brush: php; toolbar: false;">
+c::extend(array('test' => function() {
+	return 'this is a test';
+}));
+echo c::test();</pre>
+
+ 				<p>extend a class with a function that can access the object</i></p>
+				<pre class="brush: php; toolbar: false;">
+Staff::extend(array('simpleFunc' => function($me, $in) {
+	echo get_class($me).' '.$in;
+}));
+$me = Staff::o(DSM)->simpleFunc('got this');</pre>
+
+ 				<p>extend a class to return a set result</i></p>
+				<pre class="brush: php; toolbar: false;">
+Staff::extend(array('devices' => function($me) {
+	return $me->q('select * from device where id_staff="'.$me->id_staff.'"');
+}));
+Staff::o(DSM)->devices()->each(function($key, $item) {
+	print_r($item);
+});</pre>
 
 
-
-
-
-				</pre>
 			</div>
 			<br /><br /><br />
 			<center><h1>download it</h1></center><br />
@@ -212,7 +229,6 @@ Shot_Element::q('
 </body>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
 <script src="/sh/scripts/shCore.js" type="text/javascript"></script>
 <script src="/sh/scripts/shAutoloader.js" type="text/javascript"></script>
 
