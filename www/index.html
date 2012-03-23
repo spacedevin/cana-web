@@ -72,7 +72,7 @@
 		</div>
 		<div class="content"><br />
 			<center><h1>completely awesome &amp; naturally amazing</h1></center><br />
-			<p style="width: 600px; text-align: center;">cana is a php framework for rapid object oriented development. it combines existing php framework fundamentals found in frameworks such as zend, and combines it with easy to use, extended object support found in ruby, python, and jquery. cana speaks for itself.</p>
+			<p style="width: 610px; text-align: center;">cana is an mvc php framework for rapid object oriented development. it combines existing php framework fundamentals found in frameworks such as zend, and combines it with easy to use, extended object support found in ruby, python, and jquery. cana speaks for itself.</p>
 			
 			<br /><br /><br />
 			
@@ -128,16 +128,28 @@ echo Shot::o(534)->producer;</pre>
 
 				<p>this filter would be the same as this sql <i>((id_project=dev AND shot_name=DSV_DSM_000) OR (id_shot=534))</i></p>
 				<pre class="brush: php; toolbar: false;">
-echo Shot::o(array('shot_name' => 'peanuts', 'id_project' => 'dev'),'{"shot_name": "BACON"}',DEV_DSM_000,'534')->filter(array(
-	'id_project' => 'dev',
-	'shot_name' => 'DEV_DSM_000'
-),array(
-	'id_shot' => '534'
-));</pre>
+echo Shot::o(
+	array(
+		'shot_name' => 'peanuts', 
+		'id_project' => 'dev'),
+		'{"shot_name": "BACON"}',
+		DEV_DSM_000,
+		'534'
+	)->filter(
+		array(
+			'id_project' => 'dev',
+			'shot_name' => 'DEV_DSM_000'
+		),array(
+			'id_shot' => '534'
+		)
+	);</pre>
 
 				<p>filter a set of objects to set the producer property on only specific items, then return the full set</i></p>
 				<pre class="brush: php; toolbar: false;">
-$shots Shot::o(array('shot_name' => 'peanuts'),'{"shot_name": "BACON"}',DEV_DSM_000,'534')->filter('id_project','devs')->set('producer','DSM')->parent();</pre>
+$shots = Shot::o(array('shot_name' => 'peanuts'),'{"shot_name": "BACON"}',DEV_DSM_000,534)
+	->filter('id_project','devs')
+	->set('producer','DSM')
+	->parent();</pre>
 
 				<p>access the last items in the set</i></p>
 				<pre class="brush: php; toolbar: false;">
@@ -187,12 +199,12 @@ Shot_Element::q('
 			</div>
 			<br /><br /><br />
 			<center><h1>download it</h1></center><br />
-			<p>im sorry to break your heart, but im really bad at releasing things. mostly because im always working on things, changing things, breaking things. if ur lucky i will have something here someday.</p>
+			<p>im sorry to break your heart, but im really bad at releasing things. mostly because im always working on things, changing things, breaking things. if ur lucky i will have something here someday. feel free to head over to <a href="https://github.com/arzynik" target="_blank">my github</a> for other stuff.</p>
 			
 			
 			<br /><br /><br />
 			<center><h1>who am i</h1></center><br />
-			<p>just a <a href="http://devin.la" target="_blank">little boy</a> who grew up to love booze so much that he renamed his framework after his <a href="http://www.yelp.com/biz/ca%C3%B1a-rum-bar-los-angeles-3" target="_blank">new favorite bar</a></p>
+			<p>just a <a href="http://devin.la" target="_blank">little boy</a> who grew up to love booze so much that he renamed his framework after his <a href="http://www.yelp.com/biz/ca%C3%B1a-rum-bar-los-angeles-3" target="_blank">new favorite bar</a>.</p>
 
 		</div>
 	</div>
