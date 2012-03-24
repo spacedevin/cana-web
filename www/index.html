@@ -37,7 +37,7 @@
 	}
 	h1 {
 		color: #fff;
-		text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+		text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.35);
 		font-size: 35px;
 		font-weight: normal;
 		font-family: 'Anton', sans-serif;
@@ -47,7 +47,7 @@
 		margin: 0 auto;
 		width: 700px;
 		line-height: 1.5em;
-		text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.3);
+		text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.35);
 	}
 	::selection {
 		background: #09ce8b;
@@ -63,6 +63,42 @@
 	a {
 		color: #09ce8b;
 	}
+	.syntaxhighlighter:hover {
+		box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.35), 0px 0px 30px 4px rgba(255, 255, 255, 0.2);
+	}
+	
+	.syntaxhighlighter {
+		width: 700px !important;
+		margin: 0 auto;
+		margin-top: 12px;
+		margin-bottom: 38px;
+		font-size: 1em !important;
+		box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.35);
+		
+		-webkit-transition-property: box-shadow;
+		-webkit-transition-duration: .7s;
+		-webkit-transition-timing-function: ease-out;
+		
+		-moz-transition-property: box-shadow;
+		-moz-transition-duration: .7s;
+		-moz-transition-timing-function: ease-out;
+		
+		-o-transition-property: box-shadow;
+		-o-transition-duration: .7s;
+		-o-transition-timing-function: ease-out;
+		
+		transition-property: box-shadow;
+		transition-duration: .7s;
+		transition-timing-function: ease-out;
+	}
+	
+	.divider {
+		width: 505px;
+		margin: 0 auto;
+		margin-top: 50px;
+		margin-bottom: 50px;
+
+	}
 </style>
 </head>
 <body>
@@ -74,7 +110,12 @@
 			<center><h1>completely awesome &amp; naturally amazing</h1></center><br />
 			<p style="width: 610px; text-align: center;">cana is an mvc php framework for rapid object oriented development. it combines existing php framework fundamentals found in frameworks such as zend, and combines it with easy to use, extended object support found in ruby, python, and jquery. cana speaks for itself.</p>
 			
-			<br /><br /><br />
+
+
+			<div class="divider">
+				<img src="/divider.png">
+			</div>
+
 			
 			<center><h1>some cool shit you can do</h1></center><br />
 
