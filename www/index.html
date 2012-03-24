@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>cana - a php object oriented framework</title>
+<title>cana - a php 5.4 object oriented framework</title>
 <link href="http://fonts.googleapis.com/css?family=Amaranth:400,700" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Anton" rel="stylesheet" type="text/css">
 <link href="/sh/styles/shCore.css" rel="stylesheet" type="text/css" />
@@ -137,10 +137,10 @@ echo Staff::o(DSM,MPR,SSW)->s('permission','MANAGER')->save();</pre>
 
 				<p>set multiple properties on an object an save it</p>
 				<pre class="brush: php; toolbar: false;">
-Shot::o(DEV_DSM_000')->s(array(
+Shot::o(DEV_DSM_000')->s([
 	'date_due' => '2012-01-01',
 	'id_deliv_group' => 'LUMA'
-))->save();</pre>
+])->save();</pre>
 
 				<p>output a database object as json</p>
 				<pre class="brush: php; toolbar: false;">
@@ -170,24 +170,18 @@ echo Shot::o(534)->producer;</pre>
 				<p>this filter would be the same as this sql <i>((id_project=dev AND shot_name=DSV_DSM_000) OR (id_shot=534))</i></p>
 				<pre class="brush: php; toolbar: false;">
 echo Shot::o(
-	array(
-		'shot_name' => 'peanuts', 
-		'id_project' => 'dev'),
+		['shot_name' => 'peanuts', 'id_project' => 'dev'],
 		'{"shot_name": "BACON"}',
 		DEV_DSM_000,
 		'534'
 	)->filter(
-		array(
-			'id_project' => 'dev',
-			'shot_name' => 'DEV_DSM_000'
-		),array(
-			'id_shot' => '534'
-		)
+		['id_project' => 'dev', 'shot_name' => 'DEV_DSM_000'],
+		['id_shot' => '534']
 	);</pre>
 
 				<p>filter a set of objects to set the producer property on only specific items, then return the full set</i></p>
 				<pre class="brush: php; toolbar: false;">
-$shots = Shot::o(array('shot_name' => 'peanuts'),'{"shot_name": "BACON"}',DEV_DSM_000,534)
+$shots = Shot::o(['shot_name' => 'peanuts'],'{"shot_name": "BACON"}',DEV_DSM_000,534)
 	->filter('id_project','devs')
 	->set('producer','DSM')
 	->parent();</pre>
@@ -199,10 +193,7 @@ echo Shot::o('{"shot_name": "BACON"}',DEV_DSM_000,'534')->eq(-1);</pre>
 				<p>constructing a set with several arguments, arrays, or sets, will merge the items insite</i></p>
 				<pre class="brush: php; toolbar: false;">
 i::o(Shot::o(534),Shot_Element::o(4944))->each(function($key, $item) {
-	echo $item;
-	// or if you have php 5.4...
 	echo $this;
-	// $this == $item
 });</pre>
 
 
@@ -232,23 +223,23 @@ Shot_Element::q('
  
  				<p>create the test function on the base cana object. this puts the function easily accesable in the global scope</i></p>
 				<pre class="brush: php; toolbar: false;">
-c::extend(array('test' => function() {
+c::extend(['test' => function() {
 	return 'this is a test';
-}));
+}]);
 echo c::test();</pre>
 
  				<p>extend a class with a function that can access the object</i></p>
 				<pre class="brush: php; toolbar: false;">
-Staff::extend(array('simpleFunc' => function($me, $in) {
+Staff::extend(['simpleFunc' => function($me, $in) {
 	echo get_class($me).' '.$in;
-}));
+}]);
 Staff::o(DSM)->simpleFunc('got this');</pre>
 
  				<p>extend a class to return a set result</i></p>
 				<pre class="brush: php; toolbar: false;">
-Staff::extend(array('devices' => function($me) {
+Staff::extend(['devices' => function($me) {
 	return $me->q('select * from device where id_staff="'.$me->id_staff.'"');
-}));
+}]);
 Staff::o(DSM)->devices()->each(function($key, $item) {
 	print_r($item);
 });</pre>
