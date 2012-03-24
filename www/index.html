@@ -6,7 +6,7 @@
 <link href="http://fonts.googleapis.com/css?family=Anton" rel="stylesheet" type="text/css">
 <link href="/sh/styles/shCore.css" rel="stylesheet" type="text/css" />
 <link href="/sh/styles/shThemeDevin.css" rel="stylesheet" type="text/css" />
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 <style type="text/css">
 	@font-face {
 		font-family: 'DejaVu Sans Mono';
@@ -23,7 +23,7 @@
 		padding: 0;
 	}
 	body {
-		background: #484848 url(bg.gif) fixed;
+		background: #484848 url(/bg.gif) fixed;
 		color: #faf6ec;
 		font-family: 'Amaranth', Helvetica, Lucida Granda, Arial, Verdana, sans-serif;
 	}
@@ -104,7 +104,7 @@
 <body>
 	<div class="wrapper">
 		<div class="logo">
-			<img src="logo.png">
+			<img src="/logo.png">
 		</div>
 		<div class="content"><br />
 			<center><h1>completely awesome &amp; naturally amazing</h1></center><br />
@@ -242,7 +242,7 @@ echo c::test();</pre>
 Staff::extend(array('simpleFunc' => function($me, $in) {
 	echo get_class($me).' '.$in;
 }));
-$me = Staff::o(DSM)->simpleFunc('got this');</pre>
+Staff::o(DSM)->simpleFunc('got this');</pre>
 
  				<p>extend a class to return a set result</i></p>
 				<pre class="brush: php; toolbar: false;">
