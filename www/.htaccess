@@ -1,3 +1,3 @@
 RewriteEngine On
-RewriteCond %{HTTP_HOST} !^cana.la\.
+RewriteCond %{HTTP_HOST} !^cana\.la
 RewriteRule ^(.*)$ http://cana.la/$1 [R=301,L]
